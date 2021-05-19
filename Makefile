@@ -38,6 +38,7 @@ ${OBJECT}: ${LIBRARY_SOURCE} ${INCLUDES}
 	${CXX} ${CXXFLAGS} -c -fPIC -o $@ $< -lpng
 
 ${LIBRARY}.0: ${OBJECT}
+	mkdir -p lib
 	${CXX} ${CXXFLAGS} -g -shared -Wl,-soname,${LIBRARY_NAME} -o $@ $<
 
 ${LIBRARY_DIST}.0: ${LIBRARY}.0
